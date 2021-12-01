@@ -20,9 +20,9 @@ def exibir():
         print("Idade", x+1, ":", idade)
 
 # Função para solicitar as entradas
-def solicitar_nomes():
-    
-    for i in range(5):
+def solicitar_nomes(qtde):
+
+    for i in range(qtde):
         nome = input("Informe o nome: ")
         idade = int(input("Informe a idade: "))
 
@@ -30,6 +30,6 @@ def solicitar_nomes():
 
 # Rotina principal
 cadastro = [] # Declaração do array em branco
-
-solicitar_nomes()
+quantidade = int(input("Quantos nomes você quer cadastrar? ")) # Pergunta quantos nomes deverão ser cadastrados
+solicitar_nomes(quantidade)
 exibir()
