@@ -1,41 +1,51 @@
-# Definição da função de cálculo de média
-def solicita_notas():
-    # Obtem as notas
-    nota1 = int(input("Entre a nota do primeiro bimestre (0-10): "))
-    nota2 = int(input("Entre a nota do segundo bimestre (0-10): "))
-    nota3 = int(input("Entre a nota do terceiro bimestre (0-10): "))
-    nota4 = int(input("Entre a nota do quarto bimestre (0-10): "))
+from statistics import mean
 
-def calcula_media(n1, n2, n3, n4):
+# Definição das funções
+def solicitar_notas():
 
-    # Calcula a média
-    m = ( n1 + n2 + n3 + n4 ) / 4
+    notas = []
+    for i in range(4):
+        n = int(input("Entre a nota do bimestre: "))
+        notas.append(n)
+    return notas
+
+def calcular_media(notas):
+
+    m = mean(notas)
     return m
 
-def exibir_resultado():
-    # Exibe as notas e a média
-    print("\n") 
-    print("Nota do primeiro bimestre: ", nota1)
-    print("Nota do segundo bimestre: ", nota2)
-    print("Nota do terceiro bimestre: ", nota3)
-    print("Nota do quarto bimestre: ", nota4)
+def pular_linha():
     print("\n")
-    print("Média: ", media)
 
-    # Exibe o resultado aprovado ou reprovado
-    if (media >= 5):
+def exibir_notas(n):
+    for i in range(len(notas)):
+        print("Nota do bimestre", i+1, "=>", notas[i])
+
+def exibir_media(m):
+    print("Média: ", m)
+
+def exibe_aprovado(m):
+    if (m >= 5):
         print("Resultado: APROVADO")
     else:
         print("Resultado: REPROVADO")
 
-nota1 = 0
-nota2 = 0
-nota3 = 0
-nota4 = 0
+def exibir_resultado(n,m):
 
-solicita_notas()
-media = calcula_media(nota1, nota2, nota3, nota4)
-exibir_resultado()
+    pular_linha() 
+    exibir_notas(n)
+    pular_linha()
+    exibir_media(m)
+    exibe_aprovado(m)
+
+# Obtem as notas
+notas = solicitar_notas()
+
+# Calcula a média
+media = calcular_media(notas)
+
+# Exibe resultados
+exibir_resultado(notas, media)
 
 
 
